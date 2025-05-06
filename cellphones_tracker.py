@@ -191,7 +191,7 @@
        onmouseout="this.style.backgroundColor='#28a745';"
        onmousedown="this.style.transform='scale(0.98)';"
        onmouseup="this.style.transform='scale(1)';">
-        🚀 Chạy Cập Nhật Dữ Liệu (Qua GitHub Actions)
+        🚀 cập nhật dữ liệu
     </a>
     <p style="font-size: 0.9em; color: #555; margin-top: 10px;">
         (Bạn sẽ được chuyển đến GitHub để kích hoạt quy trình cập nhật tự động. Sau khi chạy xong, hãy đợi vài phút rồi tải lại trang này.)
