@@ -639,13 +639,13 @@ def generate_html_output(all_products_data, filename="scraped_products_interacti
 
         html_content += f"""
                 <div class="product-group" style="animation-delay: {idx * animation_delay_step}s;">
-                    <h2>{base_name_key} <span class="variant-count">{len(products_in_group)} biến thể</span></h2>
+                    <h2>{base_name_key} <span class="variant-count">{len(products_in_group)} máy</span></h2>
                     <table>
                         <thead>
                             <tr>
                                 <th style="width: 4%;">STT</th>
                                 <th style="width: 12%;">Nguồn</th>
-                                <th style="width: 30%;">Tên Biến Thể (Variant)</th>
+                                <th style="width: 30%;">Tên máy (Variant)</th>
                                 <th style="width: 30%;">Tên Đầy Đủ (Full Name)</th>
                                 <th style="width: 12%;">Hình ảnh</th>
                                 <th style="width: 12%;">Giá</th>
@@ -833,8 +833,8 @@ if __name__ == "__main__":
         "https://cellphones.com.vn/iphone-15.html",
         "https://cellphones.com.vn/samsung-galaxy-s24-ultra.html",
         "https://cellphones.com.vn/xiaomi-14.html",
-        "https://cellphones.com.vn/laptop/macbook.html" # Added another category
-        # "https://www.thegioididong.com/dtdd/oppo-reno11-f-5g",
+        "" # Added another category
+        "https://cellphones.com.vn/dien-thoai-meizu-mblu-21.html",
         # "https://fptshop.com.vn/dien-thoai/samsung-galaxy-s23-fe",
     ]
 
