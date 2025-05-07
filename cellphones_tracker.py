@@ -635,6 +635,19 @@ def generate_html_output(all_products_data, filename="scraped_products_interacti
        onmousedown="this.style.transform='scale(0.98)';"
        onmouseup="this.style.transform='scale(1)';">
         🚀 Chạy Cập Nhật Dữ Liệu (Qua GitHub Actions)
+        <!-- Nút tải xuống đơn giản -->
+<a 
+   href="https://raw.githubusercontent.com/Trung051/Toolchekgia/main/tat_ca_san_pham_da_quet.csv" 
+   target="_blank" 
+   download="tat_ca_san_pham_da_quet.csv"
+   style="display: inline-block; padding: 12px 25px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 6px; font-size: 1em; font-weight: 500; box-shadow: 0 2px 5px rgba(0,0,0,0.15); transition: background-color 0.2s ease, transform 0.2s ease;"
+   onmouseover="this.style.backgroundColor='#0255b3';"
+   onmouseout="this.style.backgroundColor='#0366d6';"
+   onmousedown="this.style.transform='scale(0.98)';"
+   onmouseup="this.style.transform='scale(1)';">
+    📥 Tải Xuống Dữ Liệu CSV
+</a>
+
     </a>
     <p style="font-size: 0.9em; color: #555; margin-top: 10px;">
         (Bạn sẽ được chuyển đến GitHub để kích hoạt quy trình cập nhật tự động. Sau khi chạy xong, hãy đợi vài phút rồi tải lại trang này.)
@@ -852,7 +865,6 @@ if __name__ == "__main__":
         "https://cellphones.com.vn/iphone-15.html",
         "https://cellphones.com.vn/samsung-galaxy-s24-ultra.html",
         "https://cellphones.com.vn/xiaomi-14.html",
-         "https://cellphones.com.vn/dien-thoai-xiaomi-15.html",
         "" # Added another category
         "https://cellphones.com.vn/dien-thoai-meizu-mblu-21.html",
         # "https://fptshop.com.vn/dien-thoai/samsung-galaxy-s23-fe",
@@ -890,4 +902,3 @@ if __name__ == "__main__":
             logger_info("\nKhông trích xuất được dữ liệu nào từ tất cả các URL đã cung cấp.")
 
     logger_info("\n--- Chương trình kết thúc ---")
-
