@@ -446,7 +446,7 @@ def generate_html_output(all_products_data, filename="scraped_products_interacti
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Danh sách Sản phẩm Trích xuất</title>
+        <title>Giá máy cellphones</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
