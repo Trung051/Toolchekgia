@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Danh sách Sản phẩm Trích xuất</title>
+        <title>Giá máy cellphones</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -194,21 +194,18 @@
        onmouseup="this.style.transform='scale(1)';">
         🚀 Chạy Cập Nhật Dữ Liệu (Qua GitHub Actions)
         <!-- Nút tải xuống đơn giản -->
-<a 
-   href="https://raw.githubusercontent.com/Trung051/Toolchekgia/main/tat_ca_san_pham_da_quet.csv" 
-   target="_blank" 
-   download="tat_ca_san_pham_da_quet.csv"
-   style="display: inline-block; padding: 12px 25px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 6px; font-size: 1em; font-weight: 500; box-shadow: 0 2px 5px rgba(0,0,0,0.15); transition: background-color 0.2s ease, transform 0.2s ease;"
-   onmouseover="this.style.backgroundColor='#0255b3';"
-   onmouseout="this.style.backgroundColor='#0366d6';"
-   onmousedown="this.style.transform='scale(0.98)';"
-   onmouseup="this.style.transform='scale(1)';">
-    📥 Tải Xuống Dữ Liệu CSV
-</a>
-
-    </a>
+<button
+           id="downloadCsvBtn"
+           style="display: inline-block; padding: 12px 25px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 6px; font-size: 1em; font-weight: 500; box-shadow: 0 2px 5px rgba(0,0,0,0.15); transition: background-color 0.2s ease, transform 0.2s ease; border: none; cursor: pointer;"
+           onmouseover="this.style.backgroundColor='#0255b3';"
+           onmouseout="this.style.backgroundColor='#0366d6';"
+           onmousedown="this.style.transform='scale(0.98)';"
+           onmouseup="this.style.transform='scale(1)';">
+            📥 Tải Xuống Dữ Liệu CSV
+        </button>
+    </div>
     <p style="font-size: 0.9em; color: #555; margin-top: 10px;">
-        (Bạn sẽ được chuyển đến GitHub để kích hoạt quy trình cập nhật tự động. Sau khi chạy xong, hãy đợi vài phút rồi tải lại trang này.)
+        (Bạn có thể tải xuống dữ liệu để phân tích hoặc chạy cập nhật để lấy dữ liệu mới nhất)
     </p>
 </div>
 
@@ -849,6 +846,55 @@
                 // Initial filter call in case of page reload with search value (though less common for onkeyup)
                 // filterProducts(); 
             });
+            // Hàm tải xuống file CSV từ GitHub
+document.getElementById('downloadCsvBtn').addEventListener('click', function() {
+    const owner = 'Trung051';
+    const repo = 'Toolchekgia';
+    const path = 'tat_ca_san_pham_da_quet.csv';
+    const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
+    
+    const downloadBtn = this;
+    const originalText = downloadBtn.innerHTML;
+    downloadBtn.innerHTML = '⏳ Đang tải...';
+    downloadBtn.disabled = true;
+    
+    fetch(rawUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Không thể tải file. Vui lòng thử lại sau.');
+            }
+            return response.text();
+        })
+        .then(csvContent => {
+            // Thêm BOM (Byte Order Mark) để Excel nhận diện UTF-8 đúng
+            const BOM = '﻿';
+            const csvContentWithBOM = BOM + csvContent;
+            
+            // Tạo blob và tải xuống
+            const blob = new Blob([csvContentWithBOM], { type: 'text/csv;charset=utf-8;' });
+            const url = window.URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'tat_ca_san_pham_da_quet.csv');
+            document.body.appendChild(link);
+            link.click();
+            
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(link);
+            
+            downloadBtn.innerHTML = originalText;
+            downloadBtn.disabled = false;
+        })
+        .catch(error => {
+            console.error('Lỗi khi tải file CSV:', error);
+            alert('Có lỗi xảy ra khi tải file: ' + error.message);
+            
+            downloadBtn.innerHTML = originalText;
+            downloadBtn.disabled = false;
+        });
+});
+
         </script>
     </body>
     </html>
