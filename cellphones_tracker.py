@@ -911,6 +911,7 @@ if __name__ == "__main__":
         "https://cellphones.com.vn/iphone-15.html",
         "https://cellphones.com.vn/samsung-galaxy-s24-ultra.html",
         "https://cellphones.com.vn/xiaomi-14.html",
+        "https://cellphones.com.vn/tablet/ipad.html",
         "" # Added another category
         "https://cellphones.com.vn/dien-thoai-meizu-mblu-21.html",
         # "https://fptshop.com.vn/dien-thoai/samsung-galaxy-s23-fe",
